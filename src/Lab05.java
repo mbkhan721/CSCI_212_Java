@@ -1,8 +1,11 @@
-// Muhammad Khan - CSCI 212 - Lab 04
+// Muhammad Khan - Lab 05
 
-import javax.swing.*;  // * means everything belongs to swing package
-
-public class Lab04 {
+import javax.swing.*;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.io.IOException;
+public class Lab05 {
     public static void main(String[] args) {
 
         String[] wordArray = { "hello", "goodbye", "cat", "dog",
@@ -43,5 +46,4 @@ public class Lab04 {
 
         return false;
     } // wordIsThere
-} // class Lab4Program1
-
+}
