@@ -43,7 +43,14 @@ public class Lab05 {
                 return true;
             }
         }
-
         return false;
-    } // wordIsThere
+        // Algorithm:
+        // Step1: iterate the list and access each element
+        // Step2: compare the input with the current element
+        // Step2.5: if equals, then return true -> if statement
+        // Step3: if not equal, move to next element
+        // Step4: repeat step2 to step3, until the array end
+        // Step5: return false
+    }
+    // zoom video stopped at 17:34
 }
