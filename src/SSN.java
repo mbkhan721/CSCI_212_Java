@@ -1,78 +1,53 @@
-/*
-import javax.swing.*;
-
 public class SSN {
-
-    static String ssn;
-    static String[] ssnList;
-    static int ssnSize;
+    private String SSNumber;
 
     public static void main(String[] args) {
 
-        ssn = readSSN();
-        storeSSN(ssn, ssnList, ssnSize);
-        printSSNList(ssnList, ssnSize);
     }
-    public static String readSSN() {
-        String ssn;
-        ssn = (JOptionPane.showInputDialog(null, "Enter SSN: "));
-        if (isValidSSN(ssn))
-            return ssn;
+
+    public SSN (String s) {
+        if (isValidSSN(s) )
+            SSNumber = s;
         else
-            return null;
+            throw new IllegalArgumentException(invalidReason(s));
     }
 
-    public static void storeSSN(String s, String[] list, int size) {
-        if (!isValidSSN(s) && isValidList(list))
-        list[ssnSize++] = s;
+    public String toString() {
+        return SSNumber;
     }
 
-    initialize();
-        do {
-        ssn = readSSN();
-        storeSSN(ssn, ssnList);
-        printSSNList(ssnList, ssnSize);
-    }
-        while (!ssn.equals("000000000"));
-
-    public static void printSSNList(String[] list, int size) {
-        if (!isValidList(list)) {
-            System.out.println("\nCan't print from invalid list.");
-            System.exit(0);
-        }
-        for (int i = 0; i < size; i++)
-            if (!isValidSSN(list[i]))
-                System.out.println("Invalid SSN: " + list[i]);
-            else
-                System.out.println(list[i]);
+    public int compareTo(SSN other) {
+        return SSNumber.compareTo(other.toString());
     }
 
-    public static boolean isValidSSN(String s) {
-        if (s.length() != 9) {
-            System.out.println("\nAn SSN length must be 9.");
-            return false;
-        }
-        for (int i = 0; i < 9; i++) {
-            if (! Character.isDigit(s.charAt(i))) {
-                System.out.println("\nSSN must have only digits.");
-                return false;
-            }
-        }
-        return true;
-    }
+    private static boolean isValidSSN(String s) {
+        if (s.length() != 9)
+            return (false);
 
-    public static boolean isValidList(String[] list) {
-        if (list == null) {
-            System.out.println("\nArray is null.");
-            System.exit(0);
-        }
-        if (ssnSize == list.length) {
-            System.out.println("\nCan't store anymore SSNs");
-            System.exit(0);
-        }
-        return true;
+        for (int i=0;i<9;i++)
+            if (! Character.isDigit(s.charAt(i)))
+                return(false);
+
+        return (true);
+    } // isValidSSN
+    public boolean isValidSSN() {
+        if (SSNumber.length() != 9)
+            return (false);
+
+        for (int i=0;i<9;i++)
+            if (! Character.isDigit(SSNumber.charAt(i)))
+                return(false);
+
+        return (true);
+    } // isValidSSN
+
+    private static String invalidReason(String s) {
+        for (int i=0;i<9;i++)
+            if (! Character.isDigit(s.charAt(i)))
+                return("SSN must have only digits.");
+        if (s.length() != 9)
+            return("An SSN length must be 9");
+
+        return ("There is a serious error if this is printed!");
     }
 }
-// left at slide 21
-
- */
