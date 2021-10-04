@@ -2,6 +2,8 @@
 
 package TextFileInput;
 import TextFileInput.TextFileInput;
+
+import java.io.*;
 import java.util.StringTokenizer;
 
 public class Lab08 {
@@ -11,8 +13,11 @@ public class Lab08 {
     public static String[] animals;
     public static String line;
 
+    // HW
+    public static String firstLine;
 
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws IOException {
         /*
          * Open the file and read a line
          */
@@ -45,7 +50,36 @@ public class Lab08 {
          */
         for (int j=0;j<animals.length;j++)
             System.out.println(animals[j]);
+
+        // Homework
+        myFile = new TextFileInput("twodimension8.txt");
+        firstLine = myFile.readLine();
+        myTokens = new StringTokenizer(firstLine, ",");
+        System.out.println("\nShould print first line " + firstLine);
+
+
+//        int[][] a = readArray(args[0]);
+//        for (int j = 0; j < a.length; j++) {
+//            System.out.println(a[j]);
+//        }
     } //main
+
+    public static int[][] readArray(String file) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+        int row = Integer.parseInt(br.readLine());
+        int col = Integer.parseInt(br.readLine());
+
+        int[][] a = new int[row][col];
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++) {
+                a[i][j] = Integer.parseInt(br.readLine());
+
+            }
+        }
+        br.close();
+        return a;
+
+    }
 
     // Lab 5 or lab 6 for reference to read text.input class
 }
