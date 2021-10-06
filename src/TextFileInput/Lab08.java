@@ -14,7 +14,12 @@ public class Lab08 {
     public static String line;
 
     // HW
+    public static TextFileInput myArray;
     public static String firstLine;
+    public static StringTokenizer twoDimArrayToken;
+    public static String[] twoDimArray;
+    public static String array;
+
 
 
     public static void main(String[] args) throws IOException {
@@ -52,10 +57,27 @@ public class Lab08 {
             System.out.println(animals[j]);
 
         // Homework
-        myFile = new TextFileInput("twodimension8.txt");
-        firstLine = myFile.readLine();
-        myTokens = new StringTokenizer(firstLine, ",");
-        System.out.println("\nShould print first line " + firstLine);
+//        myFile = new TextFileInput("twodimension8.txt");
+//        firstLine = myFile.readLine();
+//        myTokens = new StringTokenizer(firstLine, ",");
+//        System.out.println("\nShould print first line " + firstLine);
+
+        myArray = new TextFileInput("twodimension8.txt");
+        array = myArray.readLine();
+        twoDimArrayToken = new StringTokenizer(array, ",");
+        twoDimArray = new String[twoDimArrayToken.countTokens()];
+        int firstLine = 0;
+        while (twoDimArrayToken.hasMoreTokens()) {
+            twoDimArray[firstLine] = twoDimArrayToken.nextToken();
+            firstLine++;
+        }
+        int row = 0;
+        int col = 0;
+        for (int j = 0; j < twoDimArray.length; j++) {
+            row = Integer.parseInt(twoDimArray[j]);
+            col = Integer.parseInt(twoDimArray[j]);
+        }
+        //System.out.println("\nExp: " + row + " " + col);
 
 
 //        int[][] a = readArray(args[0]);
@@ -64,22 +86,22 @@ public class Lab08 {
 //        }
     } //main
 
-    public static int[][] readArray(String file) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
-        int row = Integer.parseInt(br.readLine());
-        int col = Integer.parseInt(br.readLine());
-
-        int[][] a = new int[row][col];
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a[i].length; j++) {
-                a[i][j] = Integer.parseInt(br.readLine());
-
-            }
-        }
-        br.close();
-        return a;
-
-    }
+//    public static int[][] readArray(String file) throws IOException {
+//        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+//        int row = Integer.parseInt(br.readLine());
+//        int col = Integer.parseInt(br.readLine());
+//
+//        int[][] a = new int[row][col];
+//        for (int i = 0; i < a.length; i++) {
+//            for (int j = 0; j < a[i].length; j++) {
+//                a[i][j] = Integer.parseInt(br.readLine());
+//
+//            }
+//        }
+//        br.close();
+//        return a;
+//
+//    }
 
     // Lab 5 or lab 6 for reference to read text.input class
 }
