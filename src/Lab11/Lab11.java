@@ -24,7 +24,7 @@ public class Lab11 {
         JLabel label = new JLabel("The sum of the numbers in the matrix is: ");
         frame.getContentPane().add(label);
 
-        textArea.setText("The matrix should print here");
+        //textArea.setText("The matrix should print here");
 
         //Display the window.
         frame.pack();
@@ -35,16 +35,18 @@ public class Lab11 {
 
     private static void readAndDisplayMatrix(JFrame myFrame, JTextArea myText,
                                              JLabel myLabel) {
-        /*
-         * Fill in this method.
-         * It should fill the text area with the matrix (as you did to a
-         * message dialog in a previous lab, calculate the sum (code from
-         * a previous lab) and set the text of the label to show the sum.
-         * Re-display the JFrame using the setVisible(true) method. The
-         * matrix is given here.
-         */
 
-        int[][] myMatrix = {{1,2,3,4},{4,5,6,7},{7,8,9,10}};
+        int[][] myMatrix = {{1,2,3},{4,5,6},{7,8,9}};
+
+        int sum = 0;
+        for (int i = 0; i < myMatrix.length; i++) {
+            for (int j = 0; j < myMatrix[i].length; j++) {
+                myText.append(myMatrix[i][j] + " ");
+                sum += myMatrix[i][j];
+            }
+            myText.append("\n");
+        }
+        myLabel.setText("Sum is: " + sum);
 
         // Step 1: iterate the matrix and calculate the sum - save everything in String val
         // String S1 = "hello", s2 = "World", s3 = s1+s2
@@ -54,6 +56,4 @@ public class Lab11 {
         // Step 4: Make it visible
 
     }
-
-
 }
