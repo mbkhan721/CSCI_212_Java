@@ -4,50 +4,30 @@ package Project1;
 // Project 1
 // CSCI 212 11
 
-import javax.swing.*;
-import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.TextArea;
+import javax.swing.JFrame;
+public class DateGUI
+{
+    //declare JFrame class
+    JFrame guidates;
+    //declare TextArea class
+    TextArea unsortedDates, sortedDates;
 
-public class DateGUI {
+    public DateGUI()
+    {
 
-    private JTextArea sorted;
-    private JTextArea unsorted;
+        guidates = new JFrame();
+        guidates.setSize(400, 300);
+        guidates.setLocation(200, 200);
+        guidates.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        guidates.setLayout(new GridLayout(1, 2));
+        guidates.setTitle("Project 1");
+        unsortedDates = new TextArea();
+        sortedDates = new TextArea();
+        guidates.getContentPane().add(unsortedDates);
+        guidates.getContentPane().add(sortedDates);
+        guidates.setVisible(true);
 
-    public void showGUI() {
-        JFrame frame = new JFrame("Project1");
-        frame.setPreferredSize(new Dimension(100, 100));
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        myFrame(frame.getContentPane());
-
-        frame.pack();
-        frame.setVisible(true);
-    }
-
-    public void sorted(String[] text) {
-        String dates = "Sorted dates: " + "\n";
-        for (String date : text) {
-            if (!date.isEmpty())
-                dates += date + "\n";
-        }
-        sorted = new JTextArea(dates);
-    }
-
-    public void unsorted(String[] text) {
-        String dates = "Unsorted dates: " + "\n";
-        for (String date : text) {
-            if(!date.isEmpty())
-                dates += date + "\n";
-        }
-        unsorted = new JTextArea(dates);
-    }
-
-    private void myFrame(Container container) {
-        GridLayout layout = new GridLayout(1, 2);
-        container.setLayout(layout);
-
-        container.add(sorted);
-        container.add(unsorted);
     }
 }

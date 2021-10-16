@@ -3,67 +3,54 @@ package Project1;
 // Project 1
 // CSCI 212 11
 
-public class Date212 {
-    private int year;
-    private int month;
-    private int day;
+public class Date212 implements Comparable<Date212> {
+    private final int year;
+    private final int month;
+    private final int day;
 
-    private final String[] months = {
-            "", "January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-    };
-
-    Date212(int year, int month, int day) {
+    public Date212(int year, int month, int day) {
         this.year = year;
         this.month = month;
         this.day = day;
     }
 
-    Date212(String date) {
-        year = Integer.parseInt(date.substring(0, 4));
-        month = Integer.parseInt(date.substring(4, 6));
-        day = Integer.parseInt(date.substring(6, 8));
+    public Date212(String date) {
+        this.year = Integer.parseInt(date.substring(0, 4));
+        this.month = Integer.parseInt(date.substring(4, 6));
+        this.day = Integer.parseInt(date.substring(6, 8));
     }
 
-    // Accessors
-    public int getDay() {
-        return day;
-    }
-    public int getMonth() {
-        return month;
-    }
-    public int getYear() {
-        return year;
-    }
-
-    // Mutators
-    public void setMonth(int month) {
-        this.month = month;
-    }
-    public void setDay(int day) {
-        this.day = day;
-    }
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        Date212 d = (Date212) o;
-        return year == d.year && month == d.month && day == d.day;
+    /**
+     * Override compareTo method
+     * Comparision of date objects
+     */
+    public int compareTo(Date212 other) {
+        if (this.year < other.year) {
+            return -1;
+        } else if (this.year > other.year) {
+            return 1;
+        }
+        if (this.month < other.month) {
+            return -1;
+        } else if (this.month > other.month) {
+            return 1;
+        }
+        if (this.day < other.day) {
+            return -1;
+        } else if (this.day > other.day) {
+            return 1;
+        }
+        return 0;
     }
 
-    @Override
+    /**
+     * Returns the string representation of the Date212 object
+     */
     public String toString() {
-        return months[month] + " " + day + ", " + year;
-    }
-
-    public int compareTo(Date212 o) {
-        return (year + " " + month + " " + day).compareTo(o.year + " " + o.month + " " + o.day);
-    }
-
-    public static void main(String[] args) {
-        Date212 date = new Date212("20160112");
-        System.out.println(date);
+        String result = "";
+        result += this.month < 10 ? "0" + this.month : this.month;
+        result += "/" + (this.day < 10 ? "0" + this.day : this.day);
+        result += "/" + this.year;
+        return result;
     }
 }
