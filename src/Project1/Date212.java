@@ -1,9 +1,7 @@
+package Project1;
 // Muhammad Khan
 // Project 1
 // CSCI 212 11
-
-import java.util.Arrays;
-import java.util.Objects;
 
 public class Date212 {
     private int year;
