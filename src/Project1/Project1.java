@@ -1,5 +1,9 @@
 package Project1;
 
+// Muhammad Khan
+// Project 1
+// CSCI 212 11
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -7,21 +11,22 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class Project1 {
-    static ArrayList<Date212> unsorted = new ArrayList<Date212>();
-    static ArrayList<Date212> sorted = new ArrayList<Date212>();
 
-    public static void main(String[] args) {
+    static ArrayList<Date212> unsorted = new ArrayList<>();
+    static ArrayList<Date212> sorted = new ArrayList<>();
+
+    public static void main(String[] args) throws FileNotFoundException {
         String filename = "dates.txt";
-        readDates(filename);
-        DateGUI gui = new DateGUI();
-        gui.unsortedDates.append("Unsorted Dates\n");
-        gui.unsortedDates.append(getListAsString(unsorted));
+        myTokenizer(filename);
+        DateGUI myObj = new DateGUI();
+        myObj.unsortedDates.append("Dates from file:\n\n");
+        myObj.unsortedDates.append(myList(unsorted));
         selectionSort(sorted);
-        gui.sortedDates.append("Sorted Dates - Low to High\n");
-        gui.sortedDates.append(getListAsString(sorted));
+        myObj.sortedDates.append("Sorted Dates - Old to New:\n\n");
+        myObj.sortedDates.append(myList(sorted));
     }
 
-    public static String getListAsString(ArrayList<Date212> dates) {
+    public static String myList(ArrayList<Date212> dates) {
         String dateList = "";
         for (Date212 date : dates) {
             dateList += date.toString()+"\n";
@@ -30,35 +35,32 @@ public class Project1 {
     }
 
     public static void selectionSort(ArrayList<Date212> dates) {
-        for (int lastPlace = dates.size()-1; lastPlace > 0; lastPlace--) {
+        for (int endDate = dates.size()-1; endDate > 0; endDate--) {
             int myNum = 0;
-            for (int j = 1; j <= lastPlace; j++) {
-                if (dates.get(j).compareTo(dates.get(myNum))==1) {
+            for (int j = 1; j <= endDate; j++) {
+                if (dates.get(j).compareTo(dates.get(myNum)) ==1) {
                     myNum = j;
                 }
             }
             Date212 temp = dates.get(myNum);
-            dates.set(myNum,dates.get(lastPlace));
-            dates.set(lastPlace,temp);
+            dates.set(myNum, dates.get(endDate));
+            dates.set(endDate, temp);
         }
     }
-    public static void readDates(String fileName) {
-        Scanner filescanner = null;
-        try {
-            filescanner=new Scanner(new File(fileName));
-            String line;
-            while (filescanner.hasNextLine()) {
-                line = filescanner.nextLine();
-                StringTokenizer tokens = new StringTokenizer(line, ",");
-                while (tokens.hasMoreTokens()) {
-                    String inStr = tokens.nextToken();
-                    Date212 date = new Date212(inStr);
-                    unsorted.add(date);
-                    sorted.add(date);
-                }
+
+    public static void myTokenizer(String fileName) throws FileNotFoundException {
+        Scanner f;
+        f = new Scanner(new File(fileName));
+        String line;
+        while (f.hasNextLine()) {
+            line = f.nextLine();
+            StringTokenizer tokens = new StringTokenizer(line, ",");
+            while (tokens.hasMoreTokens()) {
+                String inStr = tokens.nextToken();
+                Date212 date = new Date212(inStr);
+                unsorted.add(date);
+                sorted.add(date);
             }
-        } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
         }
     }
 }
