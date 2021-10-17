@@ -20,10 +20,6 @@ public class Date212 implements Comparable<Date212> {
         this.day = Integer.parseInt(date.substring(6, 8));
     }
 
-    /**
-     * Override compareTo method
-     * Comparision of date objects
-     */
     public int compareTo(Date212 other) {
         if (this.year < other.year) {
             return -1;
@@ -43,9 +39,6 @@ public class Date212 implements Comparable<Date212> {
         return 0;
     }
 
-    /**
-     * Returns the string representation of the Date212 object
-     */
     public String toString() {
         String result = "";
         result += this.month < 10 ? "0" + this.month : this.month;
