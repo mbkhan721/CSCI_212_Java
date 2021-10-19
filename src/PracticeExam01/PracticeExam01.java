@@ -1,3 +1,5 @@
+package PracticeExam01;
+
 import javax.swing.*;
 
 public class PracticeExam01 {
