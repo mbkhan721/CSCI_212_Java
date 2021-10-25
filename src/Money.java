@@ -47,6 +47,11 @@ public class Money {
         return o == this;
     }
 
+    public void add(Money m) {
+        this.dollars += m.cents / 100 + m.dollars;
+        this.cents += m.cents % 100;
+    }
+
     public static void main(String []args) {
         Money m1 = new Money();
         Money m2 = new Money(6,5);
@@ -60,5 +65,11 @@ public class Money {
         System.out.println("\nLab15:");
         Money m = new Money(5,243);
         System.out.println(m.toString());
+
+        Money m3, m4;
+        m3 = new Money(4,87);
+        m4 = new Money(5,243);
+        m3.add(m4);
+        System.out.println(m1.toString());
     }
 }
