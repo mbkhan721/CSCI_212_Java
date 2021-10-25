@@ -22,9 +22,9 @@ public class Money {
         return cents;
     }
 
-    @Override
+    //@Override
     public String toString() {
-        return "$ " + dollars + "." + cents;
+        return "$ " + dollars + ".0" + cents;
     }
 
     public int compareTo(Money m) {
