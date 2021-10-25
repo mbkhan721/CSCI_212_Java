@@ -55,5 +55,10 @@ public class Money {
         System.out.println(m2);
         System.out.println(m1.compareTo(m2)); // Returns -6 coz m1(0) is 6 less than m2(6)
         System.out.println(m1.equals(m2));    // Returns false coz m1 = 0 and m2 = $6.05
+
+        // Lab 15
+        System.out.println("\nLab15:");
+        Money m = new Money(5,243);
+        System.out.println(m.toString());
     }
 }
