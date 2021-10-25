@@ -1,6 +1,8 @@
 // Muhammad Khan
 // Lab 14
 
+import java.util.Objects;
+
 public class Money {
 
     int dollars, cents;
@@ -22,13 +24,27 @@ public class Money {
         return cents;
     }
 
-    //@Override
+    @Override
     public String toString() {
-        return "$ " + dollars + ".0" + cents;
+        //return "$ " + dollars + "." + cents;
+        String output = "$" + dollars;
+        if (cents < 10)
+            output += ".0" + cents;
+        else
+            output += "." + cents;
+
+        return output;
     }
 
     public int compareTo(Money m) {
         return ("$ " + dollars + "." + cents).compareTo("$ " + m.dollars + "." + m.cents);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        //Money money = (Money) o;
+        //return dollars == money.dollars && cents == money.cents;
+        return o == this;
     }
 
     public static void main(String []args) {
@@ -37,7 +53,7 @@ public class Money {
         System.out.println(m1.getCents());
         System.out.println(m2.getDollars());
         System.out.println(m2);
-        System.out.println(m1.compareTo(m2));
-        System.out.println(m1.equals(m2));
+        System.out.println(m1.compareTo(m2)); // Returns -6 coz m1(0) is 6 less than m2(6)
+        System.out.println(m1.equals(m2));    // Returns false coz m1 = 0 and m2 = $6.05
     }
 }
