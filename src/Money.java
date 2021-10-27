@@ -15,6 +15,12 @@ public class Money {
     public Money(int d, int c) {
         dollars = d;
         cents = c;
+        //System.out.println("\nTest: " + cents % 100);
+        if (cents > 99) {
+            int temp = cents % 100; // temp = 43
+            dollars += cents / 100;
+            cents = temp; // cents = 43
+        }
     }
 
     public int getDollars() {
@@ -37,7 +43,8 @@ public class Money {
     }
 
     public int compareTo(Money m) {
-        return ("$ " + dollars + "." + cents).compareTo("$ " + m.dollars + "." + m.cents);
+        return ("$ " + dollars + "." + cents).compareTo("$ "
+                + m.dollars + "." + m.cents);
     }
 
     @Override
@@ -48,8 +55,13 @@ public class Money {
     }
 
     public void add(Money m) {
-        this.dollars += m.cents / 100 + m.dollars;
-        this.cents += m.cents % 100;
+        dollars += m.dollars;
+        cents += m.cents;
+        if (cents > 99) {
+            int temp = cents % 100; // temp = 43
+            dollars += cents / 100;
+            cents = temp; // cents = 43
+        }
     }
 
     public static void main(String []args) {
@@ -70,6 +82,6 @@ public class Money {
         m3 = new Money(4,87);
         m4 = new Money(5,243);
         m3.add(m4);
-        System.out.println(m1.toString());
+        System.out.println(m3.toString());
     }
 }
