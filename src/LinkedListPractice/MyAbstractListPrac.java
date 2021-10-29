@@ -1,15 +1,15 @@
 package LinkedListPractice;
 
-public abstract class MyAbstractList<E> implements MyListPrac<E> {
+public abstract class MyAbstractListPrac<E> implements MyListPrac<E> {
 
     protected int size = 0; // The size of the list
 
     /** Create a default list */
-    protected MyAbstractList() {
+    protected MyAbstractListPrac() {
     }
 
     /** Create a list from an array of objects */
-    protected MyAbstractList(E[] objects) {
+    protected MyAbstractListPrac(E[] objects) {
         for (int i = 0; i < objects.length; i++)
             add(objects[i]);
     }
