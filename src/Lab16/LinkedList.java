@@ -44,6 +44,10 @@ public class LinkedList {
      */
     public void append(String d) {
         // TODO Code here for append
+        ListNode n = new ListNode(d);
+        last.next = n;
+        last = n;
+        length++;
 
     } // method append(String)
 
