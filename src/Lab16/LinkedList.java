@@ -44,9 +44,14 @@ public class LinkedList {
      */
     public void append(String d) {
         // TODO Code here for append
-        ListNode n = new ListNode(d);
-        last.next = n;
-        last = n;
+        ListNode newNode = new ListNode(d);
+        if (last == null) {
+            first = last = newNode;
+        }
+        else {
+            last.next = newNode;
+            last = last.next;
+        }
         length++;
 
     } // method append(String)
@@ -60,6 +65,14 @@ public class LinkedList {
      */
     public void prepend(String d) {
         // TODO Code here for prepend
+        ListNode newNode = new ListNode(d);
+        newNode.next = first;
+        first = newNode;
+        length++;
+
+        if (last == null) {
+            last = first;
+        }
 
     } // method append(String)
 
