@@ -1,4 +1,6 @@
-package Lab16;// Lab12.ListNode.java
+package Lab16;
+
+// ListNode.java
 
 public class ListNode
 {

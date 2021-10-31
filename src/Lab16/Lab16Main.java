@@ -2,6 +2,7 @@ package Lab16;// Muhammad Khan
 // Lab 16
 
 public class Lab16Main {
+
     public static void main(String[] args) {
 
         String[] dataSource = { "cat", "bat", "rat", "sat", "hat", "fat" };

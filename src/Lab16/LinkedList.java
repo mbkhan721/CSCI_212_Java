@@ -1,4 +1,4 @@
-package Lab16;// Lab12.LinkedList.java
+package Lab16;// LinkedList.java
 //
 // This version uses three instance variables,
 // a pointer to the first node, a pointer to
@@ -27,7 +27,7 @@ public class LinkedList {
     private int length = 0;
 
     /**
-     * Gets the number of data values currently stored in this Lab12.LinkedList.
+     * Gets the number of data values currently stored in this LinkedList.
      *
      * @return the number of elements in the list.
      */
@@ -37,13 +37,12 @@ public class LinkedList {
     }
 
     /**
-     * Appends a String data element to this Lab12.LinkedList.
+     * Appends a String data element to this LinkedList.
      *
-     * @param d
+     * @param data
      *            the data element to be appended.
      */
     public void append(String d) {
-        // TODO Code here for append
         ListNode newNode = new ListNode(d);
         if (last == null) {
             first = last = newNode;
@@ -53,18 +52,16 @@ public class LinkedList {
             last = last.next;
         }
         length++;
-
     } // method append(String)
 
     /**
      * Prepends (adds to the beginning) a String data element to this
-     * Lab12.LinkedList.
+     * LinkedList.
      *
-     * @param d
+     * @param data
      *            the data element to be prepended.
      */
     public void prepend(String d) {
-        // TODO Code here for prepend
         ListNode newNode = new ListNode(d);
         newNode.next = first;
         first = newNode;
@@ -73,7 +70,6 @@ public class LinkedList {
         if (last == null) {
             last = first;
         }
-
     } // method append(String)
 
     /**
@@ -124,4 +120,4 @@ public class LinkedList {
         return true;
     } // method equals
 
-} // class Lab12.LinkedList
+} // class LinkedList
