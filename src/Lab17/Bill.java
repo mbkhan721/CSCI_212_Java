@@ -10,4 +10,7 @@ public class Bill extends Money{
     public int getValue () {
         return dollars;
     }
+    public String toString() {
+        return ("$ " + getValue());
+    }
 }
