@@ -24,6 +24,8 @@ public class MoneyMain {
                 wallet[i] = new Dime();
         }
         printWallet();
+        sumWallet();
+
     }
     public static void printWallet () {
         for (int i = 0; i < wallet.length; i++) {
@@ -36,6 +38,14 @@ public class MoneyMain {
         }
     }
     public static void sumWallet() {
+        double sum = 0;
 
+        for(int i=0;i<wallet.length;i++) {
+            if(wallet[i] instanceof Bill)
+                sum += ((Bill)wallet[i]).getValue();
+            else
+                sum += (((Coin)wallet[i]).getValue()) * 0.01;
+        }
+        System.out.printf("\nTotal: $ %.2f", sum);
     }
 }
