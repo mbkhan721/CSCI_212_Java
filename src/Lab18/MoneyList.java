@@ -42,16 +42,12 @@ public class MoneyList {
      * @param d
      *            the data element to be appended.
      */
-    public void append(String d) {
+    public void append(Money d) {
         // TODO Code here for append
         MoneyNode newNode = new MoneyNode(d);
-        if (last == null) {
-            first = last = newNode;
-        }
-        else {
-            last.next = newNode;
-            last = last.next;
-        }
+
+        last.next = newNode;
+        last = last.next;
         length++;
 
     } // method append(String)
@@ -63,15 +59,15 @@ public class MoneyList {
      * @param d
      *            the data element to be prepended.
      */
-    public void prepend(String d) {
+    public void prepend(Money d) {
         // TODO Code here for prepend
         MoneyNode newNode = new MoneyNode(d);
-        newNode.next = first;
-        first = newNode;
+        newNode.next = first.next;
+        first.next = newNode;
         length++;
 
-        if (last == null) {
-            last = first;
+        if (last == first) {
+            last = newNode;
         }
 
     } // method append(String)
@@ -84,7 +80,7 @@ public class MoneyList {
         MoneyNode p = first.next;
         String returnString = "";
         while (p != null) {
-            returnString += p.data + " ";
+            returnString += p.data.toString() + " ";
             p = p.next;
         }
         return returnString;
