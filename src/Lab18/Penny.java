@@ -7,7 +7,7 @@ public class Penny extends Coin {
     }
 
     public String toString(){
-        return "$ 0.0" + getValue();
+        return "$0.0" + getValue();
     }
 
 }

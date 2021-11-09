@@ -1,9 +1,13 @@
 package Lab18;
 
+import java.text.DecimalFormat;
+
 public class Wallet {
 
     private MoneyList walletContents;
     private double total;
+    private static final DecimalFormat df = new DecimalFormat("0.00");
+
     //init the var of a class inside the constructor
     public Wallet() {
         walletContents = new MoneyList();
@@ -22,7 +26,7 @@ public class Wallet {
     }
 
     public String getValue() {
-        return " " + total;
+        return df.format(total);
         // "dddd.cc" format
     }
 }
