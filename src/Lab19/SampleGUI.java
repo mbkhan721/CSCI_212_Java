@@ -15,10 +15,11 @@ public class SampleGUI extends JFrame {
         setVisible(true);
 
     } //SSNGUI
+    JMenuBar menuBar = new JMenuBar();
 
     private void createFileMenu( ) {
         JMenuItem   item;
-        JMenuBar    menuBar  = new JMenuBar();
+
         JMenu       fileMenu = new JMenu("File");
         FileMenuHandler fmh  = new FileMenuHandler(this);
 
@@ -39,7 +40,6 @@ public class SampleGUI extends JFrame {
 
     private void createEditMenu() {
         JMenuItem edit;
-        JMenuBar editBar = new JMenuBar();
         JMenu editMenu = new JMenu("Edit");
         EditMenuHandler emh = new EditMenuHandler(this);
 
@@ -53,8 +53,8 @@ public class SampleGUI extends JFrame {
         edit.addActionListener(emh);
         editMenu.add(edit);
 
-        setJMenuBar(editBar);
-        editBar.add(editMenu);
+        setJMenuBar(menuBar);
+        menuBar.add(editMenu);
 
     } // editMenu
 
