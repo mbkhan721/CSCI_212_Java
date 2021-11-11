@@ -9,6 +9,10 @@ public class SampleGUI extends JFrame {
         setSize(height,width);
         setLocation  (400,200);
         createFileMenu();
+
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
+        createEditMenu();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
     } //SSNGUI
@@ -33,5 +37,26 @@ public class SampleGUI extends JFrame {
         menuBar.add(fileMenu);
 
     } //createMenu
+
+    private void createEditMenu() {
+        JMenuItem item;
+        JMenuBar menuBar = new JMenuBar();
+        JMenu editMenu = new JMenu("Edit");
+        EditMenuHandler emh = new EditMenuHandler(this);
+
+        item = new JMenuItem("Find"); // find
+        item.addActionListener(emh);
+        editMenu.add(item);
+
+        editMenu.addSeparator();    // interesting, it does HTML work for us
+
+        item = new JMenuItem("Replace");
+        item.addActionListener(emh);
+        editMenu.add(item);
+
+        setJMenuBar(menuBar);
+        menuBar.add(editMenu);
+
+    } // editMenu
 
 } //SSNGUI
