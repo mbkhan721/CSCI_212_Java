@@ -14,19 +14,15 @@ public class BadWalletMain {
                 String value = dataSource[i].substring(1, dataSource[i].length()); // AD
                 for (int j = 0; j < value.length(); j++) {
                     char c = value.charAt(j);
-
                     try {
                         if (!Character.isDigit(c)) // digit [0-9]
                             throw new IllegalBillException("Invalid input from main function.");
-
-
                     }
                     catch (IllegalBillException e) {
                         System.out.println(e.getMessage());
                         System.exit(0);
                     }
                 }
-
 
                 int billValue= Integer.parseInt(dataSource[i].substring(1,dataSource[i].length()));
                 //System.out.println(i + " " + billValue);
