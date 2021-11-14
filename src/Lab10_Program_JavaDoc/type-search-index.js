@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"Lab10_Program_JavaDoc","l":"Lab10"}]
