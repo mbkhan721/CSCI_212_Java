@@ -4,7 +4,7 @@ public abstract class Date212List {
 
     public Date212Node head;
     public Date212Node last;
-    private int length;
+    public int length;
 
     public Date212List() {
         head = null;
@@ -21,10 +21,6 @@ public abstract class Date212List {
 
     public int getSize() {
         return length;
-    }
-
-    public boolean isEmpty() {
-        return length == 0;                         // If length is 0, return
     }
 
 }
