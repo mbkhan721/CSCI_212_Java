@@ -26,4 +26,8 @@ public class Date212GUI {
         frame.setVisible(true);
 
     }
+
+    public Date212GUI() {
+
+    }
 }

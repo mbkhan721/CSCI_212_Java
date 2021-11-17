@@ -2,9 +2,6 @@ package Project2;
 
 public abstract class SortedDate212List extends Date212List{
 
-//    public Date212 data;
-//    public Date212 next;
-
     public SortedDate212List() {
         super();
     }  // constructor
@@ -14,16 +11,16 @@ public abstract class SortedDate212List extends Date212List{
         Date212Node prev = head;
         Date212Node current = head.next;
 
-        while (current != null && d.toString().compareTo(current.data.toString()) > 0) {
+        while (current != null && d.compareTo(current.data) > 0) {
             prev = current;
             current = current.next;
         }
+        prev.next = date;
+        date.next = current;
+        length++;
 
         if (date.next == null) {
             last = date;
-            length++;
         }
-
-
     }
 }

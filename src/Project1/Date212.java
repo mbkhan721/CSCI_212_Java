@@ -19,7 +19,7 @@ public class Date212 {
         this.day = day;
     }
 
-    Date212(String date) {
+    public Date212(String date) {
         year = Integer.parseInt(date.substring(0, 4));
         month = Integer.parseInt(date.substring(4, 6));
         day = Integer.parseInt(date.substring(6, 8));
