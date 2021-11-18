@@ -1,6 +1,6 @@
 package Project2;
 
-public abstract class SortedDate212List extends Date212List{
+public class SortedDate212List extends Date212List{
 
     public SortedDate212List() {
         super();
