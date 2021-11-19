@@ -4,6 +4,12 @@ package Project2;
 // Project 2
 // CSCI 212 11
 
+import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
 import java.awt.GridLayout;
 import java.awt.TextArea;
 import javax.swing.JFrame;
@@ -11,7 +17,7 @@ public class Date212GUI {
 
     TextArea unsortedDates, sortedDates;
 
-    public Date212GUI(String s) {
+    public Date212GUI() {
 
         JFrame frame = new JFrame();
         frame.setSize(400, 300);
@@ -24,10 +30,6 @@ public class Date212GUI {
         frame.getContentPane().add(unsortedDates);
         frame.getContentPane().add(sortedDates);
         frame.setVisible(true);
-
-    }
-
-    public Date212GUI() {
 
     }
 }

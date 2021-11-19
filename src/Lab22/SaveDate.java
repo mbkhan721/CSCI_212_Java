@@ -6,7 +6,7 @@ import java.util.Date;
 public class SaveDate {
 
     public static void main(String argv[]) throws Exception {
-        FileOutputStream fos = new FileOutputStream("date.out");
+        FileOutputStream fos = new FileOutputStream("date.txt");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         Date date = new Date();
         oos.writeObject(date);
