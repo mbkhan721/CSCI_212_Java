@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/Project1_jar</output-path>
     <root id="archive" name="CSCI_212.jar">
       <element id="module-output" name="CSCI_212" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src/Project2" />
     </root>
   </artifact>
 </component>

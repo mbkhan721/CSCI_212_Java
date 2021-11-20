@@ -1,6 +1,5 @@
 package Project2;
 
-import Project1.Date212;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -39,7 +38,7 @@ public class Project2 {
                     myNum = j;
                 }
             }
-            Project1.Date212 temp = dates.get(myNum);
+            Date212 temp = dates.get(myNum);
             dates.set(myNum, dates.get(endDate));
             dates.set(endDate, temp);
         }
@@ -54,7 +53,7 @@ public class Project2 {
             StringTokenizer tokens = new StringTokenizer(line, ",");
             while (tokens.hasMoreTokens()) {
                 String inStr = tokens.nextToken();
-                Project1.Date212 date = new Date212(inStr);
+                Date212 date = new Date212(inStr);
                 unsorted.add(date);
                 sorted.add(date);
             }

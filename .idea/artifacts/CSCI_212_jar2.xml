@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CSCI_212:jar2">
+    <output-path>$PROJECT_DIR$/out/artifacts/CSCI_212_jar2</output-path>
+    <root id="archive" name="CSCI_212.jar">
+      <element id="module-output" name="CSCI_212" />
+    </root>
+  </artifact>
+</component>
