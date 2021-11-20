@@ -1,36 +1,37 @@
 package Project2;
 
 public abstract class Date212List {
-    private Date212Node first;
+    private Date212Node head;
     private Date212Node last;
     int length;
-    public Date212List()
-    {
-        first = last = new Date212Node();
+
+    public Date212List() {
+        head = last = new Date212Node();
         length = 0;
     }
-    public void append(Date212Node dt)
-    {
-        last.next = dt;
+
+    public void append(Date212Node d) {
+        last.next = d;
         last = last.next;
         length++;
     }
-    public void append_sorted(Date212Node dt)
-    {
-        Date212Node nodepre = this.first;
-        while (nodepre.next != null && nodepre.next.data.compareTo(dt.data) < 0) {
-            nodepre = nodepre.next;
+
+    public void appendS(Date212Node d) {
+        Date212Node myNode = this.head;
+        while (myNode.next != null && myNode.next.data.compareTo(d.data) < 0) {
+            myNode = myNode.next;
         }
-        dt.next = nodepre.next;
-        nodepre.next = dt;
+        d.next = myNode.next;
+        myNode.next = d;
         this.length++;
     }
+
     public String toString() {
         String res = "";
-        Date212Node nodecurr = this.first.next;
-        while (nodecurr != null) {
-            res += nodecurr.data.toString() + "\n";
-            nodecurr = nodecurr.next;
+        Date212Node current = this.head.next;
+        while (current != null) {
+            res += current.data.toString() + "\n";
+            current = current.next;
         }
         return res;
     }

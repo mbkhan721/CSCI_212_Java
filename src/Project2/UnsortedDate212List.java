@@ -11,10 +11,10 @@ public class UnsortedDate212List extends Date212List{
     }
 
     public void add(Date212 dt) {
-        Date212Node te = new Date212Node(dt);
-        this.append(te);
+        Date212Node d = new Date212Node(dt);
+        this.append(d);
 
-    } // method append(Date212)
+    }
 
     public String toString() {
         return super.toString();

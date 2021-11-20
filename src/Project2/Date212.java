@@ -1,14 +1,13 @@
 package Project2;
 
 public class Date212 {
-    private int year;
-    private int month;
-    private int day;
+    private final int year;
+    private final int month;
+    private final int day;
 
-    // Constructor with three parameters
-    public Date212(int y, int mo, int d) {
+    public Date212(int y, int m, int d) {
         this.year = y;
-        this.month = mo;
+        this.month = m;
         this.day = d;
     }
 
@@ -18,29 +17,29 @@ public class Date212 {
         this.day = Integer.parseInt(da.substring(6, 8));
     }
 
-    public int compareTo(Date212 dat) {
-        if (this.year < dat.year) {
+    public int compareTo(Date212 d) {
+        if (this.year < d.year) {
             return -1;
-        } else if (this.year > dat.year) {
+        } else if (this.year > d.year) {
             return 1;
         }
-        if (this.month < dat.month) {
+        if (this.month < d.month) {
             return -1;
-        } else if (this.month > dat.month) {
+        } else if (this.month > d.month) {
             return 1;
         }
-        if (this.day < dat.day) {
+        if (this.day < d.day) {
             return -1;
-        } else if (this.day > dat.day) {
+        } else if (this.day > d.day) {
             return 1;
         }
         return 0;
     }
     public String toString() {
-        String res = "";
-        res += this.month < 10 ? "0" + this.month : this.month;
-        res += "/" + (this.day < 10 ? "0" + this.day : this.day);
-        res += "/" + this.year;
-        return res;
+        String d = "";
+        d += this.month < 10 ? "0" + this.month : this.month;
+        d += "/" + (this.day < 10 ? "0" + this.day : this.day);
+        d += "/" + this.year;
+        return d;
     }
 }
