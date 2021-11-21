@@ -1,15 +1,28 @@
 package Lab22;
 
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
-import java.util.Date;
+import java.io.*;
+
 
 public class ReadMoney {
+
     public static void main(String argv[]) throws Exception {
-        FileInputStream fis = new FileInputStream("date.txt");
+
+        FileInputStream fis = new FileInputStream("money.txt");
         ObjectInputStream ois = new ObjectInputStream(fis);
-        Date date = (Date) ois.readObject();
-        System.out.println("The date is: "+ date);
+
+        while (fis.available() != 0) {
+            Object o = ois.readObject();
+
+            if (o instanceof Quarter)
+                System.out.println(o);
+
+            else if (o instanceof  Penny)
+                System.out.println(o);
+
+            else if (o instanceof  Nickel)
+                System.out.println(o);
+        }
+
         ois.close();
         fis.close();
     }

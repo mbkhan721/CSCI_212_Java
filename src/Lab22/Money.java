@@ -1,5 +1,7 @@
 package Lab22;
 
-public abstract class Money {
+import java.io.*;
+
+public class Money  implements Serializable{
 
 }
