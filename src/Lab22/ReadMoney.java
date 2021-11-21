@@ -1,10 +1,10 @@
 package Lab22;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.util.Date;
 
-public class ReadDate {
-
+public class ReadMoney {
     public static void main(String argv[]) throws Exception {
         FileInputStream fis = new FileInputStream("date.txt");
         ObjectInputStream ois = new ObjectInputStream(fis);
