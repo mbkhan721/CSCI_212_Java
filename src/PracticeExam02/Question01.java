@@ -36,9 +36,50 @@ class LinkedList {
                         // we assert fail
         return 0;
     }
+
+    /*
+    3B. Traversing a linked list:
+
+    public class Node1 {
+
+    private String item;
+    private int count;
+    private Node1 link;
+
+    public Node1() {
+    link = null;
+    item = null;
+    count = 0;
+    }
+    }
+
+    public String getItem() { return item; }
+    public int getCount() { return count; }
+    public Node1 getLink() { return link; }
+
+    Node1 position = head;
+    while (position != null) {
+        System.out.println(position.getItem() + " " + position.getCount());
+        position = position.getLink();
+    }
+     */
+
+
+    // 4. Append a new node to the end of the list.
+    private Question01 last;
+    private int length;
+    public void append() {
+
+        Question01 newNode = new Question01();
+        last.next = newNode;
+        last = last.next;
+        length++;
+    }
 }
 
-/*
-4. Append a new node to the end of the list.
 
- */
+// 5. Insert a new node after a given node in the list
+
+
+
+
