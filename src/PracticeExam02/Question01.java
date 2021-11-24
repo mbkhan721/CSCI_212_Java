@@ -19,7 +19,7 @@ loop through each element of the list, if element data is equal to the passed nu
 counter.
 
 3. Be able to traverse the list from beginning to end and, for example, find a given node, print the data
-in a given node.
+in a given node. ---------------------------
 */
 class LinkedList {
     Question01 head;
@@ -53,6 +53,8 @@ class LinkedList {
     }
     }
 
+    public class LinkedList1 {
+
     public String getItem() { return item; }
     public int getCount() { return count; }
     public Node1 getLink() { return link; }
@@ -62,10 +64,11 @@ class LinkedList {
         System.out.println(position.getItem() + " " + position.getCount());
         position = position.getLink();
     }
+    }
      */
 
 
-    // 4. Append a new node to the end of the list.
+    // 4. Append a new node to the end of the list. ---------------------------
     private Question01 last;
     private int length;
     public void append() {
@@ -78,7 +81,36 @@ class LinkedList {
 }
 
 
-// 5. Insert a new node after a given node in the list
+/*  5. Insert a new node after a given node in the list ---------------------------
+
+    public void insert(int index, String e) {
+    Question01 newNode = new Question01();   // Create a new node
+
+    if (index == 0) {
+        newNode.next = head;                 // link the new node with the head
+        head = newNode;                      // head points to the new node
+        length++;                            // Increase list size
+
+        if (last == null)                    // The new node is the only node in list
+            last = head;
+    }
+
+    else if (index >= length) addLast(e); pg 934
+
+    else {
+        Node<E> current = head;
+        for (int i = 1; i < head; i++)
+            current = current.next;
+        Node<E> temp = current.next;
+        current.next = new Node<E>(e);
+        (current.next).next = temp;
+        size++;
+    }
+    }
+
+ */
+
+
 
 
 
