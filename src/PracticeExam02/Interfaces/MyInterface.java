@@ -1,9 +1,7 @@
-package PracticeExam02;
+package PracticeExam02.Interfaces;
 
-public class Interfaces02 {
+public class MyInterface {
 }
-
-
 /* 1. Understand the difference between a Class and an Interface
    2. Understand that classes are extended and interfaces are implemented
 
@@ -75,4 +73,3 @@ and implementation of a class mixed together into a single file. Javadoc automat
 the interface from a class definition.
 
 */
-
