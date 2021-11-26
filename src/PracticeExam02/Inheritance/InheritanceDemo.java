@@ -11,5 +11,11 @@ public class InheritanceDemo {
         joe.setName("Josephine");
         System.out.println("Joe's record is as follows:");
         System.out.println(joe);
+
+        SalariedEmployee trump = new SalariedEmployee("Donald Trump",
+                new Date("March", 23, 2018), 95000);
+        System.out.println("\nTrump's full name is " + trump.getName());
+        System.out.println(trump);
+
     }
 }
