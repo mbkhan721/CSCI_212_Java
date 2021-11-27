@@ -19,3 +19,4 @@ public class InheritanceDemo {
 
     }
 }
+// page 455 protected

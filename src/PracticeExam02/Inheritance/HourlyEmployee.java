@@ -10,7 +10,7 @@ public class HourlyEmployee extends Employee {
                  // the no-args constr for the base class.
         wageRate = 0;
         hours = 0;
-
+        // this("No name", new Date("jan", 1, 1000), 0, 0);
     }
 
     public HourlyEmployee(String theName, Date theDate, double theWageRate, double theHours) {
