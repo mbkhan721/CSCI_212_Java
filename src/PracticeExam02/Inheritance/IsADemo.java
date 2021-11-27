@@ -11,10 +11,10 @@ public class IsADemo {
 
         System.out.println("\nJoe's longer name is " + joe.getName());
         System.out.println("showEmployee(joe) invoked:");
-        showEmployee(joe);
+        showEmployee(joe); // a salariedEmployee is an Employee
 
         System.out.println("\nshowEmployee(sam) invoked:");
-        showEmployee(sam);
+        showEmployee(sam); // a hourlyEmployee is an Employee
 
     }
 
