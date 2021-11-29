@@ -98,7 +98,7 @@ class LinkedList {
             last = head;
     }
 
-    else if (index >= length) addLast(e); pg 934
+    else if (index >= length) addLast(e);
 
     else {
         Node<E> current = head;
