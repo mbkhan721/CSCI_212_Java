@@ -30,8 +30,8 @@ public class Question01 {
 
     // SSNList class ---------------------------------------------------------|
 
-//    public void PrintSSN() {
-//        SSN position = head;  // position is the name for the node
+//    public int printStrings (int count) {
+//        StringNode position = head;  // position is the name for the node
 //
 //        while (position != null) {
 //            System.out.println(position.getItem() + " " + position.getCount());
