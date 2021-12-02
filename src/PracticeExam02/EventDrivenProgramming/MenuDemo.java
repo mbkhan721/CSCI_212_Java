@@ -61,19 +61,12 @@ public class MenuDemo extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String buttonString = e.getActionCommand();
 
-        String chosenItem = ((MenuItem) e.getSource()).getLabel();
-        if (chosenItem.equals( "Pass" )) {
-            System.out.println("Hooray! You passed!");
-        }
-        else if (chosenItem.equals("Succeed")) {            // Answer 1
-            System.out.println("Hooray! Your passed!");     // Answer 2
-        }
-        else if (chosenItem.equals("Fail")) {               // Answer 3
-            System.out.println("Sorry! You failed.");       // Answer 4
-        }
-        else if (chosenItem.equals("Quit")) {               // Answer 5
-            System.exit(0);
-        }
+        if (buttonString.equals("Blue"))
+            bluePanel.setBackground(Color.BLUE);
+        else if (buttonString.equals("White"))
+            whitePanel.setBackground(Color.WHITE);
+        else if (buttonString.equals("Red"))
+            redPanel.setBackground(Color.RED);
         else
             System.out.println("Unexpected Error.");
     }
