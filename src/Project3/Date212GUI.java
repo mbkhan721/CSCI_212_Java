@@ -21,5 +21,4 @@ public class Date212GUI {
         frame.getContentPane().add(sortedDates);
         frame.setVisible(true);
     }
-
 }
