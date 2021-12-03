@@ -1,21 +1,20 @@
 package Project3;
 
+import java.awt.*;
+
 public class UnsortedDate212List extends Date212List {
 
-    public UnsortedDate212List()
-    {
-        super();
-    }
-    public int getLength() {
-        return length;
-    }
-
-    public void add(Date212 dt) {
-        Date212Node d = new Date212Node(dt);
-        this.append(d);
+    public UnsortedDate212List() {
+        Date212Node ln = new Date212Node(null);
+        first = ln;
+        last = ln;
+        length = 0;
     }
 
-    public String toString() {
-        return super.toString();
+    public void add(Date212 date) {
+        Date212Node newNode = new Date212Node(date);
+        last.next = newNode;
+        last = newNode;
+        length++;
     }
 }

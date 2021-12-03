@@ -1,38 +1,30 @@
 package Project3;
 
 public abstract class Date212List {
-    private Date212Node head;
-    private Date212Node last;
-    int length;
+    protected Date212Node first;
+    protected Date212Node last;
+    protected Date212Node d;
+    protected int length;
 
-    public Date212List() {
-        head = last = new Date212Node();
-        length = 0;
-    }
-
-    public void append(Date212Node d) {
-        last.next = d;
-        last = last.next;
-        length++;
-    }
-
-    public void appendS(Date212Node d) {
-        Date212Node myNode = this.head;
-        while (myNode.next != null && myNode.next.data.compareTo(d.data) < 0) {
-            myNode = myNode.next;
-        }
-        d.next = myNode.next;
-        myNode.next = d;
-        this.length++;
-    }
+    public abstract void add(Date212 date);
 
     public String toString() {
         String res = "";
-        Date212Node current = this.head.next;
-        while (current != null) {
-            res += current.data.toString() + "\n";
-            current = current.next;
+        d = first.next;
+        while (d != null) {
+            res += d.date.toString() + "\n";
+            d = d.next;
         }
         return res;
+    }
+
+    public String printString() {
+        String result = " ";
+        d = first.next;
+        while (d != null) {
+            result = result + d.date.getAsString() + "\n";
+            d = d.next;
+        }
+        return result;
     }
 }
