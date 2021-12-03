@@ -2,87 +2,85 @@ package Project3;
 
 public class Date212 {
 
-    private final String[] monthsInYear = {
-            "", "January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-    };
-
-    private String monthString;
     private int year;
     private int month;
     private int day;
 
-
-    public Date212(int y, int m, int d) {
-        year = y;
-        monthString = monthsInYear[m];
-        day = d;
-    }
-
-    public int getDay() {
-        return day;
-    }
-
-    public int getMonth() {
-        return month;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setDay(int day) {
-        this.day = day;
-    }
-
-    public void setMonth(int month) {
-        this.month = month;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
     public Date212(String date) {
-        this(Integer.parseInt(date.substring(0, 4)),
-                Integer.parseInt(date.substring(4, 6)),
-                Integer.parseInt(date.substring(6 , 8)));
-//        this.year = Integer.parseInt(date.substring(0, 4));
-//        this.month = Integer.parseInt(da.substring(4, 6));
-//        this.day = Integer.parseInt(da.substring(6, 8));
+// checks if the date is valid
+        if (isValidDate(date)) {
+// takes the date and takes out the month, day, and year
+            String str = date.substring(0, 4);
+            String str1 = date.substring(4, 6);
+            String str2 = date.substring(6, 8);
+            month = Integer.parseInt(str1);
+            day = Integer.parseInt(str2);
+            year = Integer.parseInt(str);
+
+        }
+        setDate212(month, day, year);
     }
 
-    public String getAsString() {
-        return monthString + " " + String.format("%02d", day)
-                + ", " + String.format("%04d", day);
+    /**
+     * Checks if the month and day are legal, throws IllegalDate212Exception if a
+     * month or day is invalid.
+     *
+     * @param month
+     * @param day
+     * @param year
+     */
+    public void setDate212(int m, int d, int y) {
+
+        year = y;
+        month = m;
+        day = d;
+
+        if (m >= 13) {
+            throw new IllegalDate212Exception("Invalid month." + y + m + d);
+        }
+        if ((m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12) && d > 31) {
+            throw new IllegalDate212Exception("Invalid month." + y + m + d);
+        }
+        if ((m == 4 || m == 6 || m == 8 || m == 11) && d > 30) {
+            throw new IllegalDate212Exception("Invalid month." + y + m + d);
+        }
+        if ((m == 2) && d > 28) {
+            throw new IllegalDate212Exception("Invalid date.");
+        }
+
+    }// setDate212
+
+    /**
+     * checks to see if the dates are 8 digits
+     */
+    public static boolean isValidDate(String s) {
+        if (s.length() != 8) {
+            return false;
+        } // if
+        for (int i = 0; i < 8; i++)
+            if (!Character.isDigit(s.charAt(i))) {
+                throw new IllegalDate212Exception("Invalid date: " + s);
+            } // if
+        return (true);
+    }// isValidDate
+
+    /**
+     * Compares two dates with each other
+     *
+     * @param other date
+     * @return the comparison value
+     */
+    public int compareTo(Date212 other) {
+// TODO Auto-generated method stub
+
+        return (year * 10000 + month * 100 + day) - (other.year * 10000 + other.month * 100 + other.day);
     }
 
+    /**
+     * This method returns the format for the dates.
+     */
     public String toString() {
-        String d = "";
-        d += this.year;
-        d += this.month < 10 ? "0" + this.month : this.month;
-//        d += "/" + (this.day < 10 ? "0" + this.day : this.day);
-//        d += "/" + this.year;
-        d += this.day < 10 ? "0" + this.day : this.day;
-        return d;
-    }
 
-    public int compareTo(Date212 d) {
-        if (this.year < d.year) {
-            return -1;
-        } else if (this.year > d.year) {
-            return 1;
-        }
-        if (this.month < d.month) {
-            return -1;
-        } else if (this.month > d.month) {
-            return 1;
-        }
-        if (this.day < d.day) {
-            return -1;
-        } else if (this.day > d.day) {
-            return 1;
-        }
-        return 0;
+        return +month + "/" + day + "/" + year;
     }
 }

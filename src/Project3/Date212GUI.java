@@ -1,40 +1,82 @@
 package Project3;
 import javax.swing.*;
 import java.awt.*;
+import java.util.StringTokenizer;
 
-public class Date212GUI extends JFrame {
+public class Date212GUI {
 
-    TextArea sortedDates, unsortedDates;
+    TextArea myTextArea, sorted;
+    UnsortedDate212List dl;
+    SortedDate212List dl2;
+    Date212[] dateList;
+    int dateSize;
+    String inFileName = "Project3Data.txt";
+    JFrame myFrame;
+    public StringTokenizer myTokens;
 
-    public Date212GUI() {
+    /**
+     * Creates GUI
+     */
+    public void initialize() {
 
-        setSize(400, 300);
-        setLocation(200, 200);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new GridLayout(1, 2));
-        setTitle("Project 3");
-        unsortedDates = new TextArea("Unsorted: " + "\n");
-        sortedDates = new TextArea("Sorted: " + "\n");
-        getContentPane().add(unsortedDates);
-        getContentPane().add(sortedDates);
+        myFrame = new JFrame();
+        Container myContentPane = myFrame.getContentPane();
+        myTextArea = new TextArea();
+        sorted = new TextArea();
+        myContentPane.add(myTextArea);
+        myContentPane.add(sorted);
+        dateList = new Date212[20];
+        dateSize = 0;
+        myFrame.setSize(500, 500);
+        myFrame.setLocation(100, 100);
+        myFrame.setTitle("Dates");
+        myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        myFrame.setLayout(new GridLayout(1, 2));
+
         createFileMenu();
-        pack();
-        setVisible(true);
-    }
+        myFrame.setVisible(true);
+    } // initialize
 
+    /**
+     * This method takes two linked lists, one unsorted and one sorted and place
+     * them into the text areas of the gui.
+     *
+     * @param UnsortedDateList
+     * ul
+     * @param SortedDateList
+     * sl
+     */
+    public void put(UnsortedDate212List ul, SortedDate212List sl) {
+
+        myTextArea.append(ul.toString() + "\n");
+        sorted.append(sl.toString() + "\n");
+
+    }// put
+
+    /**
+     * Creates a menu with a JMunuBar and JMenuItems which have actionListeners
+     * given to them to react to the user's choice.
+     */
     private void createFileMenu() {
-        JMenu FileMenu = new JMenu("File");
+
+        JMenuItem item;
         JMenuBar menuBar = new JMenuBar();
-
-        JMenuItem item = new JMenuItem("Open");
+        JMenu fileMenu = new JMenu("File");
         FileMenuHandler fmh = new FileMenuHandler(this);
-        item.addActionListener(fmh);
-        FileMenu.add(item);
-        FileMenu.addSeparator();
 
-        item = new JMenuItem("Quit");
+        item = new JMenuItem("Open"); // Open...
         item.addActionListener(fmh);
-        FileMenu.add(item);
-        setJMenuBar(menuBar);
-    }
-}
+        fileMenu.add(item);
+
+        fileMenu.addSeparator(); // add a horizontal separator line
+
+        item = new JMenuItem("Quit"); // Quit
+        item.addActionListener(fmh);
+        fileMenu.add(item);
+
+        myFrame.setJMenuBar(menuBar);
+        menuBar.add(fileMenu);
+
+    } // createMenu
+
+}// class DateGUI

@@ -3,28 +3,26 @@ package Project3;
 public abstract class Date212List {
     protected Date212Node first;
     protected Date212Node last;
-    protected Date212Node d;
     protected int length;
 
-    public abstract void add(Date212 date);
+    public Date212List() {
+
+        Date212Node dn = new Date212Node();
+        first = dn;
+        last = dn;
+        length = 0;
+    } // constructor
 
     public String toString() {
-        String res = "";
-        d = first.next;
-        while (d != null) {
-            res += d.date.toString() + "\n";
-            d = d.next;
-        }
-        return res;
-    }
 
-    public String printString() {
-        String result = " ";
-        d = first.next;
-        while (d != null) {
-            result = result + d.date.getAsString() + "\n";
-            d = d.next;
-        }
-        return result;
-    }
-}
+        Date212Node p = first.next;
+        String returnString = " ";
+        while (p != null) {
+            returnString += p.data + "\n";
+            p = p.next;
+        } // while
+        return returnString;
+
+    }// toString
+
+}// class DateList
