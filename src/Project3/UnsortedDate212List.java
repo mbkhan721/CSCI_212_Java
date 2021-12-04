@@ -2,16 +2,11 @@ package Project3;
 
 public class UnsortedDate212List extends Date212List {
 
-    /**
-     * Adds the date to the linked list
-     * @param Date212 s
-     */
-    public void add(Date212 s) {
+    public void add(Date212 d) {
 
-        Date212Node n = new Date212Node(s);
+        Date212Node n = new Date212Node(d);
         last.next = n;
         last = n;
         length++;
-    }//add
-
-}//UnsortedDateList
+    }
+}

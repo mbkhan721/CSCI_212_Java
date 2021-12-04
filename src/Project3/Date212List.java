@@ -6,23 +6,20 @@ public abstract class Date212List {
     protected int length;
 
     public Date212List() {
-
-        Date212Node dn = new Date212Node();
-        first = dn;
-        last = dn;
+        Date212Node d = new Date212Node();
+        first = d;
+        last = d;
         length = 0;
     } // constructor
 
     public String toString() {
+        Date212Node d = first.next;
+        String temp = " ";
 
-        Date212Node p = first.next;
-        String returnString = " ";
-        while (p != null) {
-            returnString += p.data + "\n";
-            p = p.next;
-        } // while
-        return returnString;
-
-    }// toString
-
-}// class DateList
+        while (d != null) {
+            temp += d.data + "\n";
+            d = d.next;
+        }
+        return temp;
+    }
+}

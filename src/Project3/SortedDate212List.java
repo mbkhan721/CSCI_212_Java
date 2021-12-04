@@ -2,38 +2,26 @@ package Project3;
 
 public class SortedDate212List extends Date212List {
 
-    /**
-     * Sorts the dates and prepares to be placed in the array in sorted order
-     *
-     * @param Date212
-     * dt
-     */
-    public void add(Date212 dt) {
+    public void add(Date212 d) {
 
-        Date212Node n = new Date212Node(dt);
+        Date212Node n = new Date212Node(d);
         Date212Node temp = first.next;
-// Date is inserted right after the last node of the list
-        if (temp == null || dt.compareTo(last.data) > 0) {
+
+        if (temp == null || d.compareTo(last.data) > 0) { // append
             last.next = n;
             last = n;
             length++;
-        } // if
-// Date is inserted right before the first node of the list (after the dummy
-// node)
-        else if (dt.compareTo(temp.data) < 0) {
+        }
+        else if (d.compareTo(temp.data) < 0) { // prepend
             n.next = temp;
             first.next = n;
-
-        } // else if
-        else {
-// Date is inserted in the middle of the list
-            while (temp.next != null && (dt.compareTo(temp.next.data)) > 0) {
+        }
+        else { // insert
+            while (temp.next != null && (d.compareTo(temp.next.data)) > 0) {
                 temp = temp.next;
             } // while
             n.next = temp.next;
             temp.next = n;
-        } // else
-
-    }// add
-
-}// SortedDateList
+        }
+    }
+}
