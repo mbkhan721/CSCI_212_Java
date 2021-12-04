@@ -4,15 +4,9 @@ package Project2;
 // Project 2
 // CSCI 212 11
 
-import java.awt.*;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-
 import java.awt.GridLayout;
 import java.awt.TextArea;
-import javax.swing.JFrame;
 public class Date212GUI {
 
     TextArea unsortedDates, sortedDates;
