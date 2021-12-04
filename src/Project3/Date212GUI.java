@@ -32,8 +32,8 @@ public class Date212GUI {
     // TreeMapping both sorted and unsorted
     public void put(UnsortedDate212List unSor, SortedDate212List sor) {
 
-        myTextArea.append(unSor.toString() + "\n");
-        sorted.append(sor.toString() + "\n");
+        myTextArea.append("Dates from file:\n\n" + unSor.toString() + "\n");
+        sorted.append("Sorted Dates - Old to New:\n\n" + sor.toString() + "\n");
 
     } // put()
 
