@@ -7,6 +7,7 @@ public class Bill extends Money{
     public Bill(int d) {
         dollars = d;
     }
+
     public int getValue() {
         return dollars;
     }
