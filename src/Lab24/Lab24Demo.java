@@ -34,14 +34,10 @@ public class Lab24Demo {
             return;
 
         Money m = head.money;
-        // check if m belong to Bill
-        if (m instanceof Bill)
-            // Bill class casting
-            System.out.print(((Bill)m).getValue() + " ");
-        // Check if m belongs to Coin
-        if (m instanceof Coin)
-            // Coin class casting
-            System.out.print(((Coin)m).getValue() + " ");
+        if (m instanceof Bill) // check if m belong to Bill
+            System.out.print(((Bill)m).getValue() + " "); // Bill class casting
+        if (m instanceof Coin) // Check if m belongs to Coin
+            System.out.print(((Coin)m).getValue() + " "); // Coin class casting
         printFromFirstToLast(head.next);
     }
 
@@ -53,14 +49,10 @@ public class Lab24Demo {
         printFromLastToFirst(node.next);
 
         Money m = node.money;
-        // check if m belong to Bill
-        if (m instanceof Bill)
-            // Bill class casting
-            System.out.print(((Bill)m).getValue() + " ");
-        // Check if m belongs to Coin
-        if (m instanceof Coin)
-            // Coin class casting
-            System.out.print(((Coin)m).getValue() + " ");
+        if (m instanceof Bill) // check if m belong to Bill
+            System.out.print(((Bill)m).getValue() + " "); // Bill class casting
+        if (m instanceof Coin) // Check if m belongs to Coin
+            System.out.print(((Coin)m).getValue() + " "); // Coin class casting
     }
 
     public static double sumMoney(Node node) { // 1 2 3 4
@@ -71,14 +63,10 @@ public class Lab24Demo {
         Money m = node.money;
         double currentValue = 0;
 
-        //check if m belong to Bill
-        if (m instanceof Bill)
-            // Bill class casting.
-            currentValue += ((Bill)m).getValue();
-        //check if m belong to coin
-        if (m instanceof Coin)
-            // coin class casting
-            currentValue += ((Coin)m).getValue() / 100.0;
+        if (m instanceof Bill) //check if m belong to Bill
+            currentValue += ((Bill)m).getValue(); // Bill class casting.
+        if (m instanceof Coin) //check if m belong to coin
+            currentValue += ((Coin)m).getValue() / 100.0; // coin class casting
 
         return currentValue + sumMoney(node.next);
     }
@@ -91,10 +79,8 @@ public class Lab24Demo {
         Money m = node.money;
         double currentValue = 0;
 
-        //check if m belong to coin
-        if (m instanceof Coin)
-            // Coin class casting
-            currentValue += ((Coin)m).getValue() / 100.0;
+        if (m instanceof Coin) //check if m belong to coin
+            currentValue += ((Coin)m).getValue() / 100.0; // Coin class casting
 
         return currentValue + sumQuarter(node.next);
     }
