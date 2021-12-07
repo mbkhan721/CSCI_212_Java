@@ -1,22 +1,38 @@
 package Project3;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class Date212 {
 
     private int year;
-    private int month;
     private int day;
+    private int month;
 
     public Date212(String date) {
         if (DateVerified(date)) {
             String yr = date.substring(0, 4);
-            String mo = date.substring(4, 6);
+            month = Integer.parseInt(date.substring(4, 6));
             String dy = date.substring(6, 8);
 
-            month = Integer.parseInt(mo);
             day = Integer.parseInt(dy);
             year = Integer.parseInt(yr);
         }
         setDate212(month, day, year);
+    }
+
+    public int getMonth() {return month;}
+    public int getDay() {return day;}
+    public int getYear() {return year;}
+
+    public void setMonth(String d) {
+        month = Integer.parseInt(d.substring(4, 5));
+    }
+    public void setDay(String d) {
+        day = Integer.parseInt(d.substring(6));
+    }
+    public void setYear(String d) {
+        year = Integer.parseInt(d.substring(0, 3));
     }
 
     public void setDate212(int m, int d, int y) {
@@ -60,6 +76,21 @@ public class Date212 {
     }
 
     public String toString() {
-        return +month + "/" + day + "/" + year;
+        String month = getMonth() + "";
+        String year = getYear() + "";
+        String day = getDay() + "";
+        if (day.length() == 1)
+            day = "0" + day;
+        if (month.length() == 1)
+            month = "0" + month;
+        LocalDate date = LocalDate.parse(year + month + day, DateTimeFormatter.BASIC_ISO_DATE);
+        String temp = date.getDayOfWeek().toString();
+        temp = temp.substring(0, 1) + temp.substring(1).toLowerCase();
+        String res = temp + ", ";
+        temp = date.getMonth().toString();
+        temp = temp.substring(0, 1) + temp.substring(1).toLowerCase();
+        res = res + temp;
+        res = res + " " + getDay() + "," + getYear();
+        return res;
     } // toString prints the date in String format
 }
