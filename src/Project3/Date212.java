@@ -85,10 +85,10 @@ public class Date212 {
             month = "0" + month;
         LocalDate date = LocalDate.parse(year + month + day, DateTimeFormatter.BASIC_ISO_DATE);
         String temp = date.getDayOfWeek().toString();
-        temp = temp.substring(0, 1) + temp.substring(1).toLowerCase();
+        temp = temp.charAt(0) + temp.substring(1).toLowerCase();
         String res = temp + ", ";
         temp = date.getMonth().toString();
-        temp = temp.substring(0, 1) + temp.substring(1).toLowerCase();
+        temp = temp.charAt(0) + temp.substring(1).toLowerCase();
         res = res + temp;
         res = res + " " + getDay() + "," + getYear();
         return res;
