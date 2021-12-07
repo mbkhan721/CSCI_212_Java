@@ -13,6 +13,13 @@ public class Lab25 {
         System.out.println(sum(intArray, intArray.length - 1));
         System.out.println(isSorted(intArray, intArray.length - 1));
         System.out.println(isSorted(intArray1, intArray1.length - 1));
+
+        // largest array without recursive function.
+//        int max = intArray[0];
+//        for (int i = 0; i < intArray.length; i++) {
+//            if (intArray[i] > max)
+//                max = intArray[i];
+//        }
     }
 
     public static int largest(int[] myArray, int index) {
