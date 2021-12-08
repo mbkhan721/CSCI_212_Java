@@ -1,11 +1,9 @@
 package ModelViewController;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowListener;
+import java.awt.event.*;
 
-public class TemperatureGUI implements java.util.Observer {
+abstract class TemperatureGUI implements java.util.Observer {
 
     private String label;
     private TemperatureModel model;
@@ -13,6 +11,10 @@ public class TemperatureGUI implements java.util.Observer {
     private TextField display = new TextField();
     private Button upButton = new Button("Raise");
     private Button downButton = new Button("Lower");
+
+    protected TemperatureModel model() {
+        return model;
+    }
 
     TemperatureGUI(String theLabel, TemperatureModel tModel, int h, int v) {
         label = theLabel;
@@ -27,9 +29,16 @@ public class TemperatureGUI implements java.util.Observer {
         temperatureFrame.addWindowListener(new CloseListener());
 
         model.addObserver(this);
-        temperatureFrame.setSize(200, 100);
+        temperatureFrame.setSize(200, 200);
         temperatureFrame.setLocation(h, v);
         temperatureFrame.setVisible(true);
+    }
+
+    static class CloseListener extends WindowAdapter {
+        public void windowClosing(WindowEvent e) {
+            e.getWindow().setVisible(false);
+            System.exit(0);
+        }
     }
 
     public void setDisplay(String s) {
@@ -37,7 +46,12 @@ public class TemperatureGUI implements java.util.Observer {
     }
 
     public double getDisplay() {
-        return Double.valueOf(display.getText()).doubleValue();
+        double result = 0.0;
+        try {
+            result = Double.valueOf(display.getText()).doubleValue();
+        }
+        catch (NumberFormatException e) {}
+        return result;
     }
 
     public void addDisplayListener(ActionListener a) {
@@ -53,7 +67,7 @@ public class TemperatureGUI implements java.util.Observer {
     }
 
     public void actionPerformed(ActionEvent e) {
-        double value = fg.getDisplay();
+        double value = getDisplay();
         model.setF(value);
     }
 }
