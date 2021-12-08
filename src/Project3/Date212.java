@@ -79,6 +79,7 @@ public class Date212 {
         String month = getMonth() + "";
         String year = getYear() + "";
         String day = getDay() + "";
+
         if (day.length() == 1)
             day = "0" + day;
         if (month.length() == 1)
