@@ -33,7 +33,7 @@ public class Date212GUI {
 
     // TreeMapping both sorted and unsorted
     public void put(UnsortedDate212List unSor, SortedDate212List sor) {
-        TreeMap<Date212, String> dateMap = new TreeMap<Date212, String>();
+        TreeMap<Date212, String> dateMap = new TreeMap<Date212, String>(); // TreeMap
 
       Date212Node temp = sor.first.next;
       while(temp.next!=null){
