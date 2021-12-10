@@ -1,6 +1,6 @@
 package Project3;
 
-public class Date212 {
+public class Date212 implements Comparable <Date212> {
 
     private int year;
     private int day;
@@ -77,9 +77,33 @@ public class Date212 {
     }// DateVerified
 
     public int compareTo(Date212 other) { // Comparing both dates with each other.
-
-        return (year * 10000 + month * 100 + day) -
-                (other.year * 10000 + other.month * 100 + other.day);
+        // result = 1 if is greater, result = -1 if is smaller, result =0 if is equal
+        int result = 0;
+        if (this.year > other.year) {
+            result = 1;
+            return result;
+        }
+        if (this.year < other.year) {
+            result = -1;
+            return result;
+        }
+        if (this.month > other.month) {
+            result = 1;
+            return result;
+        }
+        if (this.month < other.month) {
+            result = -1;
+            return result;
+        }
+        if (this.day > other.day) {
+            result = 1;
+            return result;
+        }
+        if (this.day < other.day) {
+            result = -1;
+            return result;
+        }
+        return result;
     }
 
     public String toString() {

@@ -1,6 +1,8 @@
 package Project3;
 import javax.swing.*;
 import java.awt.*;
+import java.util.Set;
+import java.util.TreeMap;
 
 public class Date212GUI {
 
@@ -31,9 +33,21 @@ public class Date212GUI {
 
     // TreeMapping both sorted and unsorted
     public void put(UnsortedDate212List unSor, SortedDate212List sor) {
+        TreeMap<Date212, String> dateMap = new TreeMap<Date212, String>();
 
+      Date212Node temp = sor.first.next;
+      while(temp.next!=null){
+          dateMap.put(temp.data,null);
+          temp = temp.next;
+      }
+      String date ="";
+      Set<Date212> keys = dateMap.keySet();
+      for(Date212 key : keys){
+          date += key.toString()+"\n";
+      }
+      // System.out.println(date);
         myTextArea.append("Dates from file:\n\n" + unSor.toString() + "\n");
-        sorted.append("Sorted Dates - Old to New:\n\n" + sor.toString() + "\n");
+        sorted.append("Sorted Dates - Old to New:\n\n" + date);
 
     } // put()
 
