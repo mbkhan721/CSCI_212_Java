@@ -1,8 +1,5 @@
 package Project3;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 public class Date212 {
 
     private int year;
@@ -86,16 +83,15 @@ public class Date212 {
     }
 
     public String toString() {
-        String arr[] = {" ", "January", "February", "March", "April", "May", "June", "July", "August", "September",
+        String[] monArray = {" ", "January", "February", "March", "April", "May", "June", "July", "August", "September",
                 "October", "November", "December"};
-        String res = getDayName(day, month, year);
-        res = res + ", " + arr[getMonth()] + " " + getDay() + "," + getYear();
-        return res;
+        String result = getDayName(day, month, year);
+        result = result + ", " + monArray[getMonth()] + " " + getDay() + "," + getYear();
+        return result;
     } // toString prints the date in String format
 
-    /*
-     * Here we are using Zeller's Congruence to find the day for given date
-     */
+
+     // Using Zeller's Congruence to find the day
     public String getDayName(int day, int month, int year) {
         if (month == 1) {
             month = 13;
@@ -105,28 +101,20 @@ public class Date212 {
             month = 14;
             year--;
         }
-        int q = day;
         int m = month;
         int k = year % 100;
         int j = year / 100;
-        int h = q + 13 * (m + 1) / 5 + k + k / 4 + j / 4 + 5 * j;
+        int h = day + 13 * (m + 1) / 5 + k + k / 4 + j / 4 + 5 * j;
         h = h % 7;
-        switch (h) {
-            case 0:
-                return "Saturday";
-            case 1:
-                return "Sunday";
-            case 2:
-                return ("Monday");
-            case 3:
-                return ("Tuesday");
-            case 4:
-                return ("Wednesday");
-            case 5:
-                return ("Thursday");
-            case 6:
-                return ("Friday");
-        }
-        return "";
+        return switch (h) {
+            case 0 -> "Saturday";
+            case 1 -> "Sunday";
+            case 2 -> ("Monday");
+            case 3 -> ("Tuesday");
+            case 4 -> ("Wednesday");
+            case 5 -> ("Thursday");
+            case 6 -> ("Friday");
+            default -> "";
+        };
     }
 }
