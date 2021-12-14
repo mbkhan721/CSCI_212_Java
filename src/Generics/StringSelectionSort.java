@@ -18,6 +18,13 @@ public class StringSelectionSort {
         }
     }
 
+    /**
+     * Precondition: i and j are legal indices for the ArrayList a.
+     * PostCondition: The values of a.get(i) and a.get(j) have been interchanged.
+     * @param i
+     * @param j
+     * @param a
+     */
     public static void interchange(int i, int j, ArrayList<String> a) {
         String temp;
         temp = a.get(i);
@@ -25,6 +32,16 @@ public class StringSelectionSort {
         a.set(j, temp);
     }
 
+    /**
+     * Returns the index of the lexicographically first value among a.get(startIndex),
+     * a.get(startIndex + 1), ..., a.get(a.size() - 1)
+     * @param startIndex
+     * @param a
+     * @return
+     *
+     * lexicographically means that the words are alphabetically ordered based on
+     * their component alphabets
+     */
     public static int indexOfSmallest(int startIndex, ArrayList<String> a) {
         String min = a.get(startIndex);
         int indexOfMin = startIndex;
