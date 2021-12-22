@@ -1,3 +1,5 @@
+package Exam01;
+
 import javax.swing.*;
 
 public class Exam01 {
